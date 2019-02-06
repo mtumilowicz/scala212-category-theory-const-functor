@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/scala212-category-theory-const-functor.svg?branch=master)](https://travis-ci.com/mtumilowicz/scala212-category-theory-const-functor)
+
 # scala212-category-theory-const-functor
 
 _Reference_: https://bartoszmilewski.com/2015/01/20/functors/
