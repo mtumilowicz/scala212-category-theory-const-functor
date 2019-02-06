@@ -23,7 +23,7 @@ with an access to underlying values is a `Const` functor
 that completely ignores its second argument:
 
 * `data Const c a = Const c`
-* `fmap :: (a -> b) -> Const c a -> Const c b`
+* `map :: (a -> b) -> Const c a -> Const c b`
     
 **The `Const` data type can be thought of similarly to the const function, 
 but as a data type.**
@@ -31,10 +31,42 @@ but as a data type.**
 # project description
 We will provide simple implementation of `Const` functor in Scala:
 ```
-final case class Const[C, A](param: A) {
+final case class Const[C, A](param: C) {
   def map[B](f: A => B): Const[C, B] = this.asInstanceOf[Const[C, B]]
 }
 ```
+and tests:
+* creation
+    ```
+    val const1: Const[Int, String] = Const(1)
+    val const2: Const[Int, Object] = Const(1)
+    
+    const1.param should be(1)
+    const2.param should be(1)
+    ```
+* equals
+    * same values, different dropped type
+        ```
+        val const1: Const[Int, String] = Const(1)
+        val const2: Const[Int, Object] = Const(1)
+        
+        const1 should be(const2)
+        ```
+    * different values
+        ```
+        val const1: Const[Int, String] = Const(1)
+        val const2: Const[Int, String] = Const(2)
+        
+        const1 should not be const2
+        ```
+    * map
+        ```
+        val const: Const[Int, Int] = Const(1)
+        
+        
+        val mapped: Const[Int, String] = const.map(_ => "a")
+        mapped.param should be(1)
+        ```
 
 Note that we provide the simplest implementation that there could be,
 follow https://github.com/typelevel/cats/blob/master/core/src/main/scala/cats/data/Const.scala
