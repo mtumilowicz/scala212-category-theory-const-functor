@@ -4,11 +4,12 @@
 
 _Reference_: https://bartoszmilewski.com/2015/01/20/functors/
 
-# preview
+# preliminary
 Referring my other github project could be useful 
 (basic info concerning functors):
 * https://github.com/mtumilowicz/java11-category-theory-optional-is-not-functor
 
+# discussion
 When we think about functors we are not at all concerned 
 about accessing the values - it's completely outside of 
 the formal scope of the functor. Functors are all about
@@ -20,6 +21,7 @@ see the transformed result
 manipulations compose correctly and does not change
 anything when composed with identity
 
+# definition
 Meaningful example of a functor that does not provide us
 with an access to underlying values is a `Const` functor
 that completely ignores its second argument:
