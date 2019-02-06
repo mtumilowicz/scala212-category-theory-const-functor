@@ -1,7 +1,6 @@
 # scala212-category-theory-const-functor
 
 _Reference_: https://bartoszmilewski.com/2015/01/20/functors/
-_Reference_: https://github.com/typelevel/cats/blob/master/core/src/main/scala/cats/data/Const.scala
 
 # preview
 Referring my other github project could be useful 
@@ -36,3 +35,7 @@ final case class Const[C, A](param: A) {
   def map[B](f: A => B): Const[C, B] = this.asInstanceOf[Const[C, B]]
 }
 ```
+
+Note that we provide the simplest implementation that there could be,
+follow https://github.com/typelevel/cats/blob/master/core/src/main/scala/cats/data/Const.scala
+to see much more sophisticated solution.
